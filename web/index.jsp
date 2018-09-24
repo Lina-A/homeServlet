@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>$Title$</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
@@ -18,27 +18,34 @@
         //         // $("#somediv").text(responseText);
         //     });
         // });
-        $(document).on("keypress", "#input", function() {
-            $.get("servlet", function(responseText) {
-                var result =  JSON.parse(responseText);
-                for (item of result.suggestions){
-                    $("#somediv").text(item.value);
+        $(document).on("keypress", "#input", function () {
 
+            var dadata = {"words": $("#input").value};
+
+            $.ajax
+            ({
+                type: "GET",//Метод передачи
+                data: dadata,//Передаваемые данные в JSON - формате
+                url: 'servlet', //Название сервлета
+                success: function (responseText) {
+                    let res = JSON.parse(responseText);
+                    for (item of res.suggestions) {
+                        console.log(item.value);
+                    }
                 }
+            })
+        })
 
-            });
-        });
+
     </script>
-  </head>
-  <body>
+</head>
+<body>
 <h1>fgfgfdgdg</h1>
 <button id="somebutton">press here</button>
 <input type="text" id="input">
 
 
-
-
 <div id="somediv"></div>
 
-  </body>
+</body>
 </html>
