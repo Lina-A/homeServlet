@@ -14,30 +14,48 @@
 </head>
 <body>
 <h1>Задание 2</h1>
-<button id="somebutton">press here</button>
+
 <input type="text" id="input">
+<div id="suggestions"></div>
 
 
-<div id="somediv"></div>
 <script>
     var input = document.querySelector("#input");
     input.addEventListener("input", getData);
+    var div = document.querySelector("#suggestions");
 
     function getData() {
+        while (div.firstElementChild) {
+            div.removeChild(div.firstElementChild);
+        }
         var word = input.value;
-if (word==null||word.length<3) return;
+        if (word == null || word.length < 3) return;
         fetch('/servlet', {method: 'POST', body: JSON.stringify({slovo: word})})
-            .then((response) =>
-                response.text())
-        .then((result0)=>{
-            let pos = result0.indexOf("{\"suggestions",5);
-            return (pos!=-1)? result0.slice(0,pos):result0;
-        })
-            .then((result) =>
-                JSON.parse(result))
-            .then((massiv) => {
-                    for(let i = 0; i < massiv["suggestions"].length; i++){
-            console.log(massiv["suggestions"][i]["value"]);}})}
+            .then((response) = >
+        response.text()
+    )
+    .
+        then((result0) = > {
+            let pos = result0.indexOf("{\"suggestions", 5);
+        return (pos != -1) ? result0.slice(0, pos) : result0;
+    })
+    .
+        then((result) = >
+        JSON.parse(result)
+    )
+    .
+        then((massiv) = > {
+            for(let i = 0;
+        i < massiv["suggestions"].length;
+        i++
+    )
+        {
+            var span = document.createElement("SPAN");
+            div.appendChild(span);
+            span.innerHTML = massiv["suggestions"][i]["value"] + "<br>";
+        }
+    })
+    }
 
 
 </script>

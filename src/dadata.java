@@ -7,7 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class dadata {
-    static StringBuffer jsonString = new StringBuffer();
+
 
     public static void main(String[] args) {
         System.err.println(Sugg("Магнитогорск"));
@@ -15,6 +15,7 @@ public class dadata {
     }
 
     static StringBuffer Sugg(String words) {
+       StringBuffer jsonString = new StringBuffer();
         try {
             URL url = new URL(" https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -26,11 +27,8 @@ public class dadata {
             con.setDoInput(true);
             con.setDoOutput(true);
             OutputStreamWriter outwr = new OutputStreamWriter(con.getOutputStream(), "UTF-8");
-
             String query = "{ \"query\": \"" + words + "\" }";
-            System.err.println(query);
             outwr.write(query);
-
             outwr.flush();
             BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
 
