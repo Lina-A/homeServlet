@@ -10,42 +10,44 @@
 <head>
     <title>$Title$</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script>
-        // $(document).on("click", "#somebutton", function() {
-        //     $.get("servlet", function(responseText) {
-        //         var sugg =  JSON.parse(responseText);
-        //               $("#somediv").text(sugg);
-        //         // $("#somediv").text(responseText);
-        //     });
-        // });
-        $(document).on("keypress", "#input", function () {
 
-            var dadata = {"words": $("#input").value};
-
-            $.ajax
-            ({
-                type: "GET",//Метод передачи
-                data: dadata,//Передаваемые данные в JSON - формате
-                url: 'servlet', //Название сервлета
-                success: function (responseText) {
-                    let res = JSON.parse(responseText);
-                    for (item of res.suggestions) {
-                        console.log(item.value);
-                    }
-                }
-            })
-        })
-
-
-    </script>
 </head>
 <body>
-<h1>fgfgfdgdg</h1>
+<h1>Задание 2</h1>
 <button id="somebutton">press here</button>
 <input type="text" id="input">
 
 
 <div id="somediv"></div>
+<script>
+    var input = document.querySelector("#input");
+    input.addEventListener("keypress", getData);
+    function getData() {
+        var word = input.value;
+
+        fetch('/servlet',{method:'POST', body: JSON.stringify({slovo:word})})
+            .then((response) =>
+                response.text())
+           .then((text) =>
+               console.log(text));
+
+
+
+
+
+    }
+        //
+        //
+        // function getData() {
+        //     fetch('/servlet',{method:'GET'})
+        //         .then((response) => response.text())
+        // .then((resp) => {const serverData = JSON.parse(resp);
+        //     alert(serverData.data);
+        // });
+        // }
+
+
+</script>
 
 </body>
 </html>
