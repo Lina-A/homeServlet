@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>$Title$</title>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 
 </head>
 <body>
@@ -21,33 +21,23 @@
 <div id="somediv"></div>
 <script>
     var input = document.querySelector("#input");
-    input.addEventListener("keypress", getData);
+    input.addEventListener("input", getData);
+
     function getData() {
         var word = input.value;
-
-        fetch('/servlet',{method:'POST', body: JSON.stringify({slovo:word})})
+if (word==null||word.length<3) return;
+        fetch('/servlet', {method: 'POST', body: JSON.stringify({slovo: word})})
             .then((response) =>
                 response.text())
-            // .then((body) =>
-            //   body.text
-            // )
-            .then((text) =>
-               console.log(text));
-
-
-
-
-
-    }
-        //
-        //
-        // function getData() {
-        //     fetch('/servlet',{method:'GET'})
-        //         .then((response) => response.text())
-        // .then((resp) => {const serverData = JSON.parse(resp);
-        //     alert(serverData.data);
-        // });
-        // }
+        .then((result0)=>{
+            let pos = result0.indexOf("{\"suggestions",5);
+            return (pos!=-1)? result0.slice(0,pos):result0;
+        })
+            .then((result) =>
+                JSON.parse(result))
+            .then((massiv) => {
+                    for(let i = 0; i < massiv["suggestions"].length; i++){
+            console.log(massiv["suggestions"][i]["value"]);}})}
 
 
 </script>

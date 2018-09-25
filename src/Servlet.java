@@ -27,10 +27,11 @@ public class Servlet extends HttpServlet {
         Map<String, String> read = gson.fromJson(text, type);
         String result = read.get("slovo");
 
-//       String text = dadata.Sugg(request.getParameter("data")).toString();
+     String sug = dadata.Sugg(result).toString();
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(result);
+        response.getWriter().write(sug);
+        sug = null;
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
