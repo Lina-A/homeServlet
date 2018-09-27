@@ -11,6 +11,8 @@ import java.io.PrintWriter;
 import java.lang.reflect.Type;
 import java.util.Map;
 
+import static java.lang.Integer.valueOf;
+
 @WebServlet(name = "Servlet")
 public class Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,9 +27,10 @@ public class Servlet extends HttpServlet {
         Type type = new TypeToken<Map<String, String>>(){}.getType();
         Gson gson = new Gson();
         Map<String, String> read = gson.fromJson(text, type);
-        String result = read.get("slovo");
+        String word = read.get("slovo");
+        int count = valueOf(read.get("count"));
 
-     String sug = dadata.Sugg(result).toString();
+        String sug = dadata.Sugg(word, count).toString();
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(sug);

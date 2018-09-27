@@ -10,12 +10,12 @@ public class dadata {
 
 
     public static void main(String[] args) {
-        System.err.println(Sugg("Магнитогорск"));
+
 
     }
 
-    static StringBuffer Sugg(String words) {
-       StringBuffer jsonString = new StringBuffer();
+    static StringBuffer Sugg(String words, int count) {
+        StringBuffer jsonString = new StringBuffer();
         try {
             URL url = new URL(" https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -27,7 +27,7 @@ public class dadata {
             con.setDoInput(true);
             con.setDoOutput(true);
             OutputStreamWriter outwr = new OutputStreamWriter(con.getOutputStream(), "UTF-8");
-            String query = "{ \"query\": \"" + words + "\" }";
+            String query = "{ \"query\": \"" + words + "\", \"count\":" + count + "}";
             outwr.write(query);
             outwr.flush();
             BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
