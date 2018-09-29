@@ -50,9 +50,15 @@
     var fias = document.querySelector(".fias");
 
     function askDadata(word, count) {
-
+        headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+        body = "slovo=" + encodeURIComponent(word) + "&count=" + count;
+        var myInit = {
+            method: 'POST',
+            headers: headers,
+            body: body
+        };
         if (word == null || word.length < 3) return;
-        return fetch('/servlet', {method: 'POST', body: JSON.stringify({slovo: word, count: count})})
+        return fetch('/servlet', myInit)
             .then((response) =>
                 response.text()
             )
@@ -86,23 +92,23 @@
 
     }
 
-    // function makeChoice(event) {
-    //     let target = event.target;
-    //     let word = target.innerText;
-    //     let count = 1;
-    //     new Promise((resolve) => {
-    //         resolve(askDadata(word, count))
-    //     })
-    //         .then(function (suggestionsArray) {
-    //                 while (suggestionsField.firstElementChild) {
-    //                     suggestionsField.removeChild(suggestionsField.firstElementChild);
-    //                 }
-    //                 input.value = suggestionsArray["suggestions"][0]["value"];
-    //                 fias.innerText = "ФИАС: " + suggestionsArray["suggestions"][0]["data"]["fias_id"]
-    //             }
-    //         )
-    //
-    // }
+    function makeChoice(event) {
+        let target = event.target;
+        let word = target.innerText;
+        let count = 1;
+        new Promise((resolve) => {
+            resolve(askDadata(word, count))
+        })
+            .then(function (suggestionsArray) {
+                    while (suggestionsField.firstElementChild) {
+                        suggestionsField.removeChild(suggestionsField.firstElementChild);
+                    }
+                    input.value = suggestionsArray["suggestions"][0]["value"];
+                    fias.innerText = "ФИАС: " + suggestionsArray["suggestions"][0]["data"]["fias_id"]
+                }
+            )
+
+    }
 
 </script>
 

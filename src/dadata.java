@@ -5,6 +5,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 
 import java.net.URL;
+import java.net.URLDecoder;
 
 public class dadata {
 
@@ -20,9 +21,8 @@ public class dadata {
             URL url = new URL(" https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
-            con.setRequestProperty("charset", "utf-8");
-            con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-            con.setRequestProperty("Accept", "application/json; charset=UTF-8");
+            con.setRequestProperty("Content-Type", "application/json");
+            con.setRequestProperty("Accept", "application/json");
             con.setRequestProperty("Authorization", "Token 35840dc3dde98f80cc79207694041f2163a01855");
             con.setDoInput(true);
             con.setDoOutput(true);

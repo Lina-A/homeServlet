@@ -50,9 +50,15 @@
     var fias = document.querySelector(".fias");
 
     function askDadata(word, count) {
-
+        headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+        body = "slovo=" + encodeURIComponent(word) + "&count=" + count;
+        var myInit = {
+            method: 'POST',
+            headers: headers,
+            body: body
+        };
         if (word == null || word.length < 3) return;
-        return fetch('/servlet', {method: 'POST', body: JSON.stringify({slovo: word, count: count})})
+        return fetch('/servlet', myInit)
             .then((response) =>
                 response.text()
             )
