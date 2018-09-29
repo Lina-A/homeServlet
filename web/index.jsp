@@ -86,23 +86,23 @@
 
     }
 
-    function makeChoice(event) {
-        let target = event.target;
-        let word = target.innerText;
-        let count = 1;
-        new Promise((resolve) => {
-            resolve(askDadata(word, count))
-        })
-            .then(function (suggestionsArray) {
-                    while (suggestionsField.firstElementChild) {
-                        suggestionsField.removeChild(suggestionsField.firstElementChild);
-                    }
-                    input.value = suggestionsArray["suggestions"][0]["value"];
-                    fias.innerText = "ФИАС: " + suggestionsArray["suggestions"][0]["data"]["fias_id"]
-                }
-            )
-
-    }
+    // function makeChoice(event) {
+    //     let target = event.target;
+    //     let word = target.innerText;
+    //     let count = 1;
+    //     new Promise((resolve) => {
+    //         resolve(askDadata(word, count))
+    //     })
+    //         .then(function (suggestionsArray) {
+    //                 while (suggestionsField.firstElementChild) {
+    //                     suggestionsField.removeChild(suggestionsField.firstElementChild);
+    //                 }
+    //                 input.value = suggestionsArray["suggestions"][0]["value"];
+    //                 fias.innerText = "ФИАС: " + suggestionsArray["suggestions"][0]["data"]["fias_id"]
+    //             }
+    //         )
+    //
+    // }
 
 </script>
 

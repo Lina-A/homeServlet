@@ -8,6 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4d1e9f0-e6da-4ef8-a392-578f48d29a63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/homeServlet_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/homeServlet_war_exploded/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -71,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="103" selection-start-line="103" selection-end-line="103" />
+            <state relative-caret-position="443">
+              <caret line="105" lean-forward="true" selection-start-line="88" selection-start-column="3" selection-end-line="105" />
             </state>
           </provider>
         </entry>
@@ -147,7 +148,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
@@ -165,38 +166,6 @@
             <path>
               <item name="homeServlet" type="b2602c69:ProjectViewProjectNode" />
               <item name="homeServlet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homeServlet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homeServlet" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homeServlet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homeServlet" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homeServlet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homeServlet" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="gson-2.8.5.jar" type="ab9368bb:PsiFileNode" />
-            </path>
-            <path>
-              <item name="homeServlet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homeServlet" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homeServlet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homeServlet" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="homeServlet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="homeServlet" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="homeServlet" type="b2602c69:ProjectViewProjectNode" />
@@ -324,18 +293,18 @@
       <workItem from="1537808087243" duration="10620000" />
       <workItem from="1537851235901" duration="17609000" />
       <workItem from="1538033158873" duration="8191000" />
-      <workItem from="1538226709944" duration="274000" />
+      <workItem from="1538226709944" duration="914000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53649000" />
+    <option name="totallyTimeSpent" value="54289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.115733735" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.115733735" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -345,7 +314,7 @@
       <window_info id="Web" order="7" sideWeight="0.5008183" side_tool="true" weight="0.24962178" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.13584287" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.13584287" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -392,8 +361,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        <state relative-caret-position="443">
+          <caret line="105" lean-forward="true" selection-start-line="88" selection-start-column="3" selection-end-line="105" />
         </state>
       </provider>
     </entry>

@@ -57,7 +57,7 @@
                 response.text()
             )
             .then((result) => {
-                    suggestionsArray = JSON.parse(result);
+                   let suggestionsArray = JSON.parse(result);
                     return suggestionsArray;
                 }
             )
@@ -101,7 +101,7 @@
                     fias.innerText = "ФИАС: " + suggestionsArray["suggestions"][0]["data"]["fias_id"]
                 }
             )
-        document.body.insertAdjacentHTML('beforeend', 'самая последняя строка');
+
     }
 
 </script>
