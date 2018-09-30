@@ -40,8 +40,6 @@
 <input type="text" id="input">
 <div id="suggestions"></div>
 <p class="fias">ФИАС: </p>
-
-
 <script>
     var input = document.querySelector("#input");
     input.addEventListener("input", makeSuggestionsList);
