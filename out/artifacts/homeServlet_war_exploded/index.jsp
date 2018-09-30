@@ -50,23 +50,20 @@
     var fias = document.querySelector(".fias");
 
     function askDadata(word, count) {
-        headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+        var  suggestionsArray;
         body = "slovo=" + encodeURIComponent(word) + "&count=" + count;
-        var myInit = {
-            method: 'POST',
-            headers: headers,
-            body: body
-        };
-        if (word == null || word.length < 3) return;
-        return fetch('/servlet', myInit)
-            .then((response) =>
-                response.text()
-            )
-            .then((result) => {
-                   let suggestionsArray = JSON.parse(result);
-                    return suggestionsArray;
-                }
-            )
+         if (word == null || word.length < 3) return;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '/servlet', false);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(body);
+        if (xhr.status != 200) {
+            alert( xhr.status + ': ' + xhr.statusText );
+        } else {
+
+        suggestionsArray = JSON.parse( xhr.responseText );
+        }
+        return suggestionsArray;
     }
 
     function makeSuggestionsList() {
