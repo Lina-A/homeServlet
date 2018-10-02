@@ -46,7 +46,7 @@
 <input type="text" class="input" id="g2">
 <div class="suggestions"></div>
 <button>Показать расстояние</button>
-<p class="geo">Расстояние по прямой: <span class="distance"></span> </p>
+<p class="geo">Расстояние по прямой: <span class="distance"></span></p>
 
 
 <script>
@@ -61,10 +61,7 @@
     button.addEventListener("click", showDistance);
 
     var distance = document.querySelector(".distance");
-    var la1 = 0;
-    var lo1 = 0;
-    var la2 = 0;
-    var lo2 = 0;
+
 
     function askDadata(word, count) {
         var suggestionsArray;
@@ -87,10 +84,7 @@
         let currentInput = this;
         let word = this.value;
         let count = 10;
-        var la1 = 0;
-        var lo1 = 0;
-        var la2 = 0;
-        var lo2 = 0;
+
         new Promise((resolve) => {
             resolve(askDadata(word, count))
         })
@@ -126,8 +120,8 @@
                         suggestionsField.removeChild(suggestionsField.firstElementChild);
                     }
                     currentInput.value = suggestionsArray["suggestions"][0]["value"];
-                    la1 ? la2 = +suggestionsArray["suggestions"][0]["data"]["geo_lat"] : la1 = +suggestionsArray["suggestions"][0]["data"]["geo_lat"];
-                    lo1 ? lo2 = +suggestionsArray["suggestions"][0]["data"]["geo_lon"] : lo1 = +suggestionsArray["suggestions"][0]["data"]["geo_lon"];
+                    currentInput.la = +suggestionsArray["suggestions"][0]["data"]["geo_lat"];
+                    currentInput.lo = +suggestionsArray["suggestions"][0]["data"]["geo_lon"];
 
                 }
             )
@@ -135,29 +129,32 @@
     }
 
     function showDistance() {
-        distance.innerHTML = Math.round(getDistance(la1,lo1,la2,lo2)) + " км."
+
+        var la1 = inputs[0].la;
+        var lo1 = inputs[0].lo;
+        var la2 = inputs[1].la;
+        var lo2 = inputs[1].lo;
+
+        distance.innerHTML = Math.round(getDistance(la1, lo1, la2, lo2)) + " км."
     }
 
-    function getDistance(lat1,lon1,lat2,lon2) {
+    function getDistance(lat1, lon1, lat2, lon2) {
         var R = 6371; // Radius of the earth in km
-        var dLat = deg2rad(lat2-lat1);  // deg2rad below
-        var dLon = deg2rad(lon2-lon1);
+        var dLat = deg2rad(lat2 - lat1);  // deg2rad below
+        var dLon = deg2rad(lon2 - lon1);
         var a =
-            Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
             Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-            Math.sin(dLon/2) * Math.sin(dLon/2)
+            Math.sin(dLon / 2) * Math.sin(dLon / 2)
         ;
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         var d = R * c; // Distance in km
         return d;
     }
 
     function deg2rad(deg) {
-        return deg * (Math.PI/180)
+        return deg * (Math.PI / 180)
     }
-
-
-
 
 
 </script>
