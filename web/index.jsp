@@ -20,17 +20,27 @@
         // });
         $(document).on("keypress", "#input", function () {
 
-            var dadata = {"words": $("#input").value};
+            const inputElement = $("#input")[0];
+            var dadata = {"words": inputElement.value};
+            console.log(dadata);
 
             $.ajax
             ({
-                type: "GET",//Метод передачи
+                type: "POST",//Метод передачи
                 data: dadata,//Передаваемые данные в JSON - формате
                 url: 'servlet', //Название сервлета
-                success: function (responseText) {
-                    let res = JSON.parse(responseText);
-                    for (item of res.suggestions) {
+                success: function (response) {
+                    console.log(response)
+                    const parsed = JSON.parse(response);
+                    console.log(parsed)
+                    for (item of parsed.suggestions) {
                         console.log(item.value);
+                    }
+                    if (parsed.suggestions.length > 0) {
+                        var suggesstionsElement = $("#suggestions");
+                        for (item of parsed.suggestions) {
+                            suggesstionsElement.html(parsed.suggestions.map(x => x.value + "<br/>").join("\n"))
+                        }
                     }
                 }
             })
@@ -46,6 +56,8 @@
 
 
 <div id="somediv"></div>
+
+<div id="suggestions" style="height: 500px; display: block"></div>
 
 </body>
 </html>
