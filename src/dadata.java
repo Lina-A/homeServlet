@@ -7,14 +7,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class dadata {
-    static StringBuffer jsonString = new StringBuffer();
-
     public static void main(String[] args) {
         System.err.println(Sugg("Магнитогорск"));
 
     }
 
     static StringBuffer Sugg(String words) {
+        StringBuffer jsonString = new StringBuffer();
+
         try {
             URL url = new URL(" https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
